@@ -1,7 +1,9 @@
+from typing import Optional, Dict
+
 from langcodes import Language
 from ovos_gguf_solver import GGUFSolver
+
 from ovos_plugin_manager.templates.language import LanguageTranslator
-from typing import Optional, Dict, Union, List, Set
 
 
 class GGUFTranslator(LanguageTranslator):
@@ -10,7 +12,8 @@ class GGUFTranslator(LanguageTranslator):
         cfg = {
             "model": "TheBloke/TowerInstruct-7B-v0.1-GGUF",
             "remote_filename": "*Q4_K_M.gguf",
-            "n_gpu_layers": -1
+            "n_gpu_layers": -1,
+            "persona": "you are a professional translator"
         }
         self.solver = GGUFSolver(cfg)
 
@@ -38,5 +41,6 @@ class GGUFTranslator(LanguageTranslator):
 
 if __name__ == "__main__":
     tx = GGUFTranslator()
-    print(tx.translate("The easiest way for anyone to contribute is to help with translations! You can help without any programming knowledge via the translation portal",
-                       target="es-es"))
+    print(tx.translate(
+        "The easiest way for anyone to contribute is to help with translations! You can help without any programming knowledge via the translation portal",
+        target="es-es"))
