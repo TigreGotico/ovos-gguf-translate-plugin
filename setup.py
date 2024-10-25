@@ -67,7 +67,7 @@ setup(
     author='jarbasAI',
     author_email='jarbasai@mailfence.com',
     install_requires=required('requirements.txt'),
-    description='searchable json database with persistence',
+    
     long_description=get_description(),
     long_description_content_type="text/markdown",
 )
